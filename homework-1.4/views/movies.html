@@ -1,0 +1,43 @@
+<head>
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+<h1>Movies</h1>
+{% for movie in movies %}
+<li>
+    <a href="http://www.imdb.com/title/{{movie.imdb}}">{{movie.title}}, {{movie.year}}</a>
+</li>
+{% else %}
+<li>No movies found.</li>
+{% endfor %}
+
+<h2>Add a Movie</h2>
+<fieldset>
+    <form method="POST" action="/add_movie">
+        <p>
+            <label>
+                Title:
+                <input type="text" name="title" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Year:
+                <input type="number" name="year" />
+            </label>
+        </p>
+        <p>
+            <label>
+                IMDB:
+                <input type="text" name="imdb" />
+            </label>
+        </p>
+        <p>
+            <button type="submit">Save</button>
+        </p>
+    </form>
+</fieldset>
